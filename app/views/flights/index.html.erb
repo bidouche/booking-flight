@@ -1,0 +1,15 @@
+<%= form_tag(root_path, method: "get") do %>
+  <%= label_tag("From:") %>
+  <%= select_tag("search[departure_id]", options_for_select(@airport), prompt: "Select something", class: "form-control col-md-3") %>
+  <%= label_tag("To:") %>
+  <%= select_tag("search[arrival_id]", options_for_select(@airport), prompt: "Select something", class: "form-control col-md-3") %>
+  <%= label_tag("From:") %>
+  <%= date_field_tag "search[departure_date]", '2018-11-11', class: "form-control col-md-3" %>
+  <%= label_tag("Nombre de personnes:") %>
+  <%= select_tag "search[pass_nbr]", options_for_select((1..10)), class: "form-control col-md-3" %>
+  <%= submit_tag("Search", class: "btn btn-primary") %>
+<% end %>
+
+
+
+<%= @flights %>
