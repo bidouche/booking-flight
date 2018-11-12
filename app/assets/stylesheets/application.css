@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+.card{
+	background-color: lightgrey;
+	
+}
+.gossips {
+	padding-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.formulaire{
+	justify-content: center;
+	margin-left: 550px;
+}
+.bouton{
+	margin-left: 50px;
+}

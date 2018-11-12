@@ -1,15 +1,34 @@
-<%= form_tag(root_path, method: "get") do %>
+<div class="formulaire">
+  <%= form_tag(root_path, method: "get") do %>
   <%= label_tag("From:") %>
-  <%= select_tag("search[departure_id]", options_for_select(@airport), prompt: "Select something", class: "form-control col-md-3") %>
+  <%= select_tag("search[departure_id]", options_for_select(@airport), prompt: "Select airport", class: "form-control col-md-3") %>
   <%= label_tag("To:") %>
-  <%= select_tag("search[arrival_id]", options_for_select(@airport), prompt: "Select something", class: "form-control col-md-3") %>
+  <%= select_tag("search[arrival_id]", options_for_select(@airport), prompt: "Select airport", class: "form-control col-md-3") %>
   <%= label_tag("From:") %>
-  <%= date_field_tag "search[departure_date]", '2018-11-11', class: "form-control col-md-3" %>
+  <%= date_field_tag "search[departure_date]", '2018-11-11' , class: "form-control col-md-3" %>
   <%= label_tag("Nombre de personnes:") %>
-  <%= select_tag "search[pass_nbr]", options_for_select((1..10)), class: "form-control col-md-3" %>
+  <%= select_tag "search[pass_nbr]", options_for_select((1..10)), class: "form-control col-md-3" %></br>
+  <div class="bouton">
   <%= submit_tag("Search", class: "btn btn-primary") %>
+  </div>
+  <% end %>
+</div>
+
+<% if params[:search] %>
+    <div class="gossips">
+      <% @flights.each do |x|%>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text"><strong>Durée:  </strong><%= x.duration %></p>
+    <p class="card-text"><strong>Départ de:  </strong><%= x.departure_airport.airport_code %></p>
+    <p class="card-text"><strong>Arrivée à:  </strong><%= x.arrival_airport.airport_code %></p>
+    <p class="card-text"><strong>Date de départ:  </strong><%= x.departure_date %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% else %>
+    <p>Je n'ai toujours pas appuyé sur le submit button 🚨</p>
 <% end %>
 
 
-
-<%= @flights %>

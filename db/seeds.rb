@@ -5,7 +5,7 @@ airports.each do |airport|
 end
 
 
-200.times do |index|
+2000.times do |index|
   Flight.create!(
       duration: rand(3600..10000),
       departure_date: rand(DateTime.new(2018,11,11)..DateTime.new(2018,11,18)),
