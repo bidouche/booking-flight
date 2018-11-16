@@ -23,12 +23,13 @@
     <p class="card-text"><strong>Départ de:  </strong><%= x.departure_airport.airport_code %></p>
     <p class="card-text"><strong>Arrivée à:  </strong><%= x.arrival_airport.airport_code %></p>
     <p class="card-text"><strong>Date de départ:  </strong><%= x.departure_date %></p>
+    <%= link_to("Réservation", booking_path(x.id)) %>
     </div>
   </div>
   <% end %>
 </div>
 <% else %>
-    <p>Je n'ai toujours pas appuyé sur le submit button 🚨</p>
+    
 <% end %>
 
 

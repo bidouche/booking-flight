@@ -1,0 +1,29 @@
+<div class="content">
+<%= form_for(:booking, url: bookings_path) do |f| %>
+  <div class="form-group">
+    <h1>Vous souhaitez reserver ce vol:</h1>
+<div class="form">
+        <div class="form-group">
+    <label for="title">Duration</label>
+    <%= f.text_field :duration, value: "#{@flight.duration}", class: 'form-control col-md-3'%>
+  </div>
+  <div class="form-group">
+    <label for="title">Departure airport</label>
+    <%= f.text_field :departure_airport_id, value: "#{@flight.departure_airport.airport_code}", class: 'form-control col-md-3'%>
+  </div>
+  <div class="form-group">
+    <label for="title">Arrival airport</label>
+    <%= f.text_field :arrival_airport_id, value: "#{@flight.arrival_airport.airport_code}", class: 'form-control col-md-3'%>
+  </div>
+  <div class="form-group">
+    <label for="title">Departure date</label>
+    <%= f.text_field :departure_date, value: "#{@flight.departure_date}", class: 'form-control col-md-3'%>
+  </div>
+    
+  
+    
+  </div>
+  <button type="submit" class="btn btn-primary" name="create">Confirm</button>
+</div>
+<% end %>
+</div>
